@@ -13,10 +13,15 @@
 <body>
     {% for contest in cf_contest_list %}
         {% if contest.phase == string %}
+            <br><p>Codeforces</p><br>
             <a href="{{ cf_contest_link }}{{ contest.id }}">{{ contest.name }}</a><br>
-                <p>Codeforces</p><br>
-                <p>{{ contest.startTimeSeconds }}</p>
+                <p>{{ contest.startTimeSeconds }}</p><br>
         {% endif %}
+    {% endfor %}
+    {% for contest in chef_contest_list %}
+        <p>Codechef</p><br>
+        <a href="{{ chef_contest_link }}{{ contest.0 }}">{{ contest.1 }}</a><br>
+        <p>{{ contest.2 }} {{ contest.3 }}</p><br>
     {% endfor %}
 >>>>>>> b03b9752940d72db77a3bc296d5dcbd03cbc7e33
 </body>
