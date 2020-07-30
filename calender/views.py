@@ -17,10 +17,11 @@ def calender(request):
     def fun(e):
         return e['startTimeSeconds']
 
-    cf_contest_list.sort(in=fun)
+    cf_contest_list.sort(key=fun)
 
     context = {'cf_contest_list': cf_contest_list,'string': string, 'cf_contest_link': cf_contest_link}
     return render(request, 'calender.html', context)
+
 
 
 
