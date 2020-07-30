@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <title>calender</title>
 </head>
 <body>
 
+=======
+    <title>Calender</title>
+</head>
+<body>
+    {% for contest in cf_contest_list %}
+        {% if contest.phase == string %}
+            <a href="{{ cf_contest_link }}{{ contest.id }}">{{ contest.name }}</a><br>
+                <p>Codeforces</p><br>
+                <p>{{ contest.startTimeSeconds }}</p>
+        {% endif %}
+    {% endfor %}
+>>>>>>> b03b9752940d72db77a3bc296d5dcbd03cbc7e33
 </body>
 </html>
