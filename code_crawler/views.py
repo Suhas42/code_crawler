@@ -40,7 +40,7 @@ def register(request):
         context={'form':form}
         return render(request,'register.html',context)
 
-@login_required(login_url='login')
+#@login_required(login_url='login')
 def analytics(request):
     context = {}
     if request.method == 'POST':
