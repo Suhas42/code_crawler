@@ -49,8 +49,8 @@ def calender(request):
         result.pop(0),result.pop(0)
         chef_contest_list.append(list)
         print(chef_contest_list)
-        chef_context_link = "https://www.codechef. com"
-        context = {'cf_contest_list': cf_contest_list, 'string': string, 'cf_contest_link':                   cf_contest_link,'chef_contest_list':chef_contest_list,}
+        chef_context_link = "https://www.codechef.com"
+        context = {'cf_contest_list': cf_contest_list, 'string': string, 'cf_contest_link':cf_contest_link,'chef_contest_list':chef_contest_list,}
     return render(request, 'calender.html', context)
 
 
