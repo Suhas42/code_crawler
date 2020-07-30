@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>analytics</title>
+</head>
+<body>
+<form action="{% url 'analytics' %}" method="post">
+    {% csrf_token %}
+    Enter handle:<br>
+    <input type="text" name="handleinput">
+    <input type="submit"  value="search">
+</form>
+{% if status %}
+    <h2>{{ userinfo.handle }}</h2>
+    <p>{{ userinfo.handle }}</p>
+    <p>{{ userinfo.handle }}</p>
+{% endif %}
+</body>
+</html>
