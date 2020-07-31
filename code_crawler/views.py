@@ -1,9 +1,10 @@
 from django.shortcuts import render,redirect
-from django.contrib import messages
 from django.contrib.auth import authenticate, logout, login
 from django.contrib.auth.decorators import login_required
 from . import forms
 import urllib3, json
+from collections import Counter
+from datetime import datetime
 
 @login_required(login_url='login')
 def home(request):
@@ -71,7 +72,46 @@ def analytics(request):
             problems = problems['result']
 
 
-            context = {'userinfo': userinfo, 'status': status, 'contests':contests, 'problems':problems}
+            ###  ratings area  ###
+            ratings = []
+            rank = []
+            ratingupdate = []
+            ratingupdatetime = []
+            for contest in contests:
+                ratings.append(contest['newRating'])
+                rank.append(contest['rank'])
+                ratingupdate.append(contest['ratingUpdateTimeSeconds'])
+            for i in ratingupdate:
+                ratingupdatetime.append(datetime.fromtimestamp(i).strftime("%d %b'%y"))
+            ###  ratings area  ###
+
+
+            ###  problem analysis area  ###
+            difficultytags = []
+            tags = []
+            languages = []
+            problemrating = []
+            temp = set()
+            for problem in problems:
+                if problem['id'] not in temp and problem['verdict'] == 'OK' and 'rating' in problem['problem']:
+                    temp.add(problem['id'])
+                    difficultytags.append(problem['problem']['index'][0])
+                    tags.extend(problem['problem']['tags'])
+                    languages.append(problem['programmingLanguage'])
+                    problemrating.append(problem['problem']['rating'])
+
+            problemrating = sorted(problemrating)
+            problemratingscount = Counter(problemrating)
+            difficultytags = sorted(difficultytags)
+            difficultytagscount = Counter(difficultytags)
+            tagcount = Counter(tags)
+            languagecount = Counter(languages)
+
+            ###  problem analysis area  ###
+
+            context = {'userinfo': userinfo, 'status': status, 'contests':contests, 'problems':problems,'ratings':ratings,'rank':rank,
+                       'ratingupdatetime':ratingupdatetime, 'problemratingscount':problemratingscount, 'difficultytagscount':difficultytagscount,
+                       'tagcount':tagcount, 'languagecount':languagecount, 'problemrating':problemrating}
 
     return render(request,'analytics.html',context)
 
@@ -82,6 +122,7 @@ def resetpass(request):
 def contactus(request):
     return render(request,'contactus.html')
 
+@login_required(login_url='login')
 def developers(request):
     return render(request,'developers.html')
 
