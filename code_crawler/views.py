@@ -9,10 +9,11 @@ import urllib3, json
 def home(request):
     return render(request,'home.html')
 
-def login(request):
+def loginto(request):
     if request.user.is_authenticated:
         return redirect('home')
     else:
+        message = ''
         if request.method == "POST":
             username = request.POST.get('username')
             password = request.POST.get('password')
@@ -21,23 +22,25 @@ def login(request):
                 login(request, user)
                 return redirect('home')
             else:
-                messages.info(request, 'Username or Password is Incorrect')
-        context = {}
+                message = 'Username or Password is Incorrect'
+        context = {'message':message}
         return render(request,'login.html',context)
 
 def register(request):
     if request.user.is_authenticated:
         return redirect('home')
     else:
+        message = ''
         form = forms.UserForm()
         if request.method == "POST":
             form = forms.UserForm(request.POST)
             if form.is_valid():
                 form.save()
                 user = form.cleaned_data.get('username')
-                messages.success(request, 'Account was created for ' + user)
+                message = 'Account was created for ' + user
                 return redirect('login')
-        context={'form':form}
+            message = 'Account not created'
+        context={'form':form,'message':message}
         return render(request,'register.html',context)
 
 #@login_required(login_url='login')
@@ -71,7 +74,7 @@ def developers(request):
     return render(request,'developers.html')
 
 @login_required(login_url='login')
-def logout(request):
+def logoutfrom(request):
     logout(request)
     return redirect(home)
 
