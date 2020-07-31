@@ -13,14 +13,14 @@
 <body>
     <table style="align-content: center" border="3">
         <thead>
-            <th>Contest Platform</th>
-            <th>Contest Name</th>
-            <th>Contest Date&Time</th>
+            <th style="align-content: center">Contest Platform</th>
+            <th style="align-content: center">Contest Name</th>
+            <th style="align-content: center">Contest Date&Time</th>
         </thead>
         {% for contest in cf_contest_list %}
             {% if contest.phase == string %}
                 <tr>
-                    <td>Codeforces</td>
+                    <td style="align-content: center">Codeforces</td>
                     <td><a href="{{ cf_contest_link }}{{ contest.id }}">{{ contest.name }}</a></td>
                     <td>{{ contest.startTimeSeconds }}</td>
                 </tr>
@@ -29,9 +29,9 @@
 
         {% for contest in chef_contest_list %}
             <tr>
-                <td>Codechef</td>
+                <td style="align-content: center">Codechef</td>
                 <td><a href="{{ chef_contest_link }}{{ contest.0 }}">{{ contest.1 }}</a></td>
-                <td>{{ contest.2 }} {{ contest.3 }}</td>
+                <td>{{ contest.2 }}, {{ contest.3 }}</td>
             </tr>
         {% endfor %}
     </table>

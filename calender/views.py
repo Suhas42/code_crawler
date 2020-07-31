@@ -5,6 +5,8 @@ import urllib3
 import json
 import requests
 from bs4 import BeautifulSoup
+from datetime import datetime
+
 # Create your views here.
 def calender(request):
     # return render(request, 'home.html')
@@ -21,6 +23,9 @@ def calender(request):
         return e['startTimeSeconds']
 
     cf_contest_list.sort(key=fun)
+
+    for contest in cf_contest_list:
+        contest['startTimeSeconds'] = datetime.fromtimestamp(contest['startTimeSeconds'])
     
     soup = requests.get('https://www.codechef.com/contests/?itm_medium=navmenu&itm_campaign=allcontests#future-contests')
     soup=BeautifulSoup(soup.content,'html')
