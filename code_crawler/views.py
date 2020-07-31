@@ -43,7 +43,7 @@ def register(request):
         context={'form':form,'message':message}
         return render(request,'register.html',context)
 
-#@login_required(login_url='login')
+@login_required(login_url='login')
 def analytics(request):
     context = {}
     if request.method == 'POST':
@@ -59,7 +59,19 @@ def analytics(request):
             status = True
             userinfo = userinfo["result"]
             userinfo = userinfo[0]
-            context={'userinfo':userinfo, 'status':status}
+
+            url = "https://codeforces.com/api/user.rating?handle=" + handle
+            json_obj = http.request('GET', url)
+            contestgiven = json.loads(json_obj.data.decode('utf-8'))
+            contests = contestgiven['result']
+
+            url = "https://codeforces.com/api/user.status?handle=" + handle
+            json_obj = http.request('GET', url)
+            problems = json.loads(json_obj.data.decode('utf-8'))
+            problems = problems['result']
+
+
+            context = {'userinfo': userinfo, 'status': status, 'contests':contests, 'problems':problems}
 
     return render(request,'analytics.html',context)
 
