@@ -76,5 +76,5 @@ def developers(request):
 @login_required(login_url='login')
 def logoutfrom(request):
     logout(request)
-    return redirect(home)
+    return redirect('home')
 
