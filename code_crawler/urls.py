@@ -19,13 +19,13 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('calender',include('calender.urls'),name='calender'),
-    path('',views.home,name='home'),
-    path('login/',views.loginto, name='login'),
-    path('register/',views.register, name='register'),
-    path('analytics/',views.analytics, name='analytics'),
-    path('logout/',views.logoutfrom, name='logout'),
-    path('resetpass/',views.resetpass, name='resetpass'),
-    path('contactus/',views.contactus, name='contact'),
-    path('developers/',views.developers, name='developers'),
+    path('calender', include('calender.urls'), name='calender'),
+    path('', views.home, name='home'),
+    path('login/', views.loginto, name='login'),
+    path('register/', views.register, name='register'),
+    path('analytics/', views.analytics, name='analytics'),
+    path('logout/', views.logoutfrom, name='logout'),
+    path('resetpass/', views.resetpass, name='resetpass'),
+    path('contactus/', views.contactus, name='contact'),
+    path('developers/', views.developers, name='developers'),
 ]
