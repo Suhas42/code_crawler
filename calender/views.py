@@ -25,10 +25,38 @@ def calender(request):
     cf_contest_list.sort(key=fun)
 
     for contest in cf_contest_list:
-        contest['startTimeSeconds'] = datetime.fromtimestamp(contest['startTimeSeconds'])
-    
+        time = datetime.fromtimestamp(contest['startTimeSeconds']).strftime('%d-%m-%Y, %H:%M:%S')
+
+        if time[3:5]=="01":
+            month="Jan"
+        elif time[3:5]=="02":
+            month="Feb"
+        elif time[3:5]=="03":
+            month="Mar"
+        elif time[3:5]=="04":
+            month="Apr"
+        elif time[3:5]=="05":
+            month="May"
+        elif time[3:5]=="06":
+            month="Jun"
+        elif time[3:5]=="07":
+            month="Jul"
+        elif time[3:5]=="08":
+            month="Aug"
+        elif time[3:5]=="09":
+            month="Sep"
+        elif time[3:5]=="10":
+            month="Oct"
+        elif time[3:5]=="11":
+            month="Nov"
+        elif time[3:5]=="12":
+            month="Dec"
+        else:
+            month = time[3:5]
+        contest['startTimeSeconds'] = time[0:2] + " " + month + " " + time[6:]
+
     soup = requests.get('https://www.codechef.com/contests/?itm_medium=navmenu&itm_campaign=allcontests#future-contests')
-    soup=BeautifulSoup(soup.content,'html')
+    soup=BeautifulSoup(soup.content, 'html')
     soup=soup.find(id='future-contests')
     soup=soup.next_sibling.next_sibling
     soup=soup.find_all('td')
