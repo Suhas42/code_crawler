@@ -177,6 +177,53 @@
             </div>
         </div>
     </div> 
+    
+      <div class="card-deck mb-5">
+        <div class = "col-md-6 col-sm-12 col-xs-12">
+            <div class="card h-100 border-info mb-3">
+                <div class="card-header text-center">Submissions</div>
+                <div class="card-body" id="myChart">
+
+                    <script>
+
+                        var SubmissionData = {
+                            type : "pie3d",
+                            "layout": "2x2",
+                            "scale": {
+                                   "size-factor": 0.5
+                            },
+
+                            plot: {
+                                tooltip: {
+                                text: "%t<br>%npv%<br>%v"
+                                },
+
+
+                                //to order pie slices by size and have reference angle start at zero.
+
+                            },
+                            /*title : {
+                            text : "Submissions"
+                            },*/
+                            series: [
+                                    {% for tag in tagcount %}
+                                    {% get_count tagcount tag as lol %}
+                                    { values: {{lol}}, text : "{{tag}}"} {% if not forloop.last %},{% endif %}
+                                    {% endfor %}
+                            ]
+
+                        }
+
+                        zingchart.render({
+                            id: 'myChart',
+                            data: SubmissionData,
+                        });
+                    </script>
+
+                </div>
+
+            </div>
+        </div>  
  
         {% endif %}
     </div>
