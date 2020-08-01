@@ -224,6 +224,65 @@
 
             </div>
         </div>  
+        
+             <div class="col-md-6 col-sm-12 col-xs-12" >
+            <div class="card h-100 border-info mb-3">
+                <div class="card-header text-center">No. Of Problems Solved vs Problem Rating</div>
+                <div class="card-body" id="problem_rating_bar">
+                    <script>
+                    var problem_rating_data={
+                        type: 'bar',
+                        /*"title": {
+                            "text": "No. Of Problems Solved vs Problem Rating",
+                            "font-color": "#2da4cc",
+                            "backgroundColor": "none",
+                            "font-size": "22px",
+                            "alpha": 1,
+                            "adjust-layout": true,
+                        },*/
+                        plotarea: {
+                            'adjust-layout': true
+                        },
+                        "plot": {
+                            "bars-space-left": 0.15,
+                            "bars-space-right": 0.15,
+                            "animation": {
+                                "effect": "ANIMATION_SLIDE_BOTTOM",
+                                "sequence": 0,
+                                "speed": 800,
+                                "delay": 800
+                            }
+                        },
+                        'scale-x': {
+                            label: { /* Scale Title */
+                                text: "Problems Rating",
+                            },
+                             labels: [{% for x in problemratingscount %}
+                             "{{x}}" {% if not forloop.last %},{% endif %}
+                             {% endfor %}]
+                        },
+                        'scale-y': {
+                            label: {
+                                text: "No. of Problems"
+                            }
+                        },
+                        series: [
+                        {
+                            values:[{% for l in problemratingscount %}
+                                {% get_ABC_count problemratingscount l as yoyo %}
+                                {{yoyo}} {% if not forloop.last %},{% endif %}
+                                {% endfor %}
+                            ]
+                        }]
+                    }
+                    zingchart.render({
+                    id: 'problem_rating_bar',
+                    data: problem_rating_data,});
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
  
         {% endif %}
     </div>
