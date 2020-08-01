@@ -100,18 +100,34 @@ def analytics(request):
                     languages.append(problem['programmingLanguage'])
                     problemrating.append(problem['problem']['rating'])
 
+            verdicts = []
+            for problem in problems:
+                verdicts.append(problem['verdict'])
+
+            ok_submissions = []
+            for problem in problems:
+                if problem['verdict'] == 'OK':
+                    ok_submissions.append(problem['creationTimeSeconds'])
+            dates = []
+            for item in ok_submissions:
+                timestamp = datetime.fromtimestamp(item)
+                dates.append(timestamp.strftime('%Y-%m-%d'))
+            datecount = Counter(dates)
+
             problemrating = sorted(problemrating)
             problemratingscount = Counter(problemrating)
             difficultytags = sorted(difficultytags)
             difficultytagscount = Counter(difficultytags)
             tagcount = Counter(tags)
             languagecount = Counter(languages)
+            verdictscount = Counter(verdicts)
 
             ###  problem analysis area  ###
 
             context = {'userinfo': userinfo, 'status': status, 'contests':contests, 'problems':problems,'ratings':ratings,'rank':rank,
                        'ratingupdatetime':ratingupdatetime, 'problemratingscount':problemratingscount, 'difficultytagscount':difficultytagscount,
-                       'tagcount':tagcount, 'languagecount':languagecount, 'problemrating':problemrating}
+                       'tagcount':tagcount, 'languagecount':languagecount, 'problemrating':problemrating, 'verdictscount':verdictscount,
+                       'datecount':datecount, 'ok_count': len(ok_submissions)}
 
     return render(request,'analytics.html',context)
 

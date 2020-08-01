@@ -63,3 +63,19 @@
     display:block;
     padding: 8px 22px;
 }
+
+.card-header {
+  color: #14b5a5;
+}
+
+.card-body a:hover{
+    text-decoration: none;
+}
+
+.card{
+    border:none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-deck{
+    margin:0;
+}
