@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-	{% load static %}
-	{% load tag %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>analytics</title>
-</head>
-<body>
-<form action="{% url 'analytics' %}" method="post">
-    {% csrf_token %}
-    Enter handle:<br>
-    <input type="text" name="handleinput">
-    <input type="submit"  value="search">
-</form>
+{% extends 'index.html'%}
+{% block head %}
+<title>Analysis</title>
+{% endblock %}
+{% block content %}
+{% load static %}
+{% load tag %}
 <div>
     <div class="col-md-6">
         {% if status %}
@@ -398,7 +390,7 @@
                           },
                           startMonth: 1,
                           endMonth: 7,
-                          palette: ['none', '#2196F3'],
+                          palette: ['none', '#216e39'],
                           month: {
                             item: {
                               fontColor: 'gray',
@@ -437,7 +429,7 @@
                           },
                           { //Lefthand Label (middle portion)
                             text: '%plot-value',
-                            fontColor: '#2196F3',
+                            fontColor: '#216e39',
                             fontFamily: 'Georgia',
                             fontSize: 35,
                             textAlign: 'center',
@@ -465,7 +457,7 @@
                           },
                           { //Rightside Label (middle portion)
                             text: '{{ok_count}}',
-                            fontColor: '#2196F3',
+                            fontColor: '#216e39',
                             fontFamily: 'Georgia',
                             fontSize: 35,
                             textAlign: 'center',
@@ -527,5 +519,4 @@
         {% endif %}
     </div>
 </div>
-</body>
-</html>
+{% endblock %}

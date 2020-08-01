@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
+{% extends 'index.html'%}
+{% block head %}
+<title>Code Crawler | Analysis</title>
+{% endblock %}
+{% block content %}
 login page
 
 <form method="post" action="{% url 'login' %}">
@@ -16,5 +14,4 @@ login page
 <button type="button" value="register">
     <a href="{% url 'register' %}">Register</a>
 </button>
-</body>
-</html>
+{% endblock %}

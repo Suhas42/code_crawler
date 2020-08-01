@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-<<<<<<< HEAD
-    <title>calender</title>
-</head>
-<body>
-
-=======
-    <title>Calender</title>
-</head>
-<body>
+{% extends 'index.html'%}
+{% block head %}
+<title>Code Calender</title>
+{% endblock %}
+{% block content %}
     <table style="align-content: center" border="3">
         <thead>
             <th style="align-content: center">Contest Platform</th>
@@ -35,6 +27,4 @@
             </tr>
         {% endfor %}
     </table>
->>>>>>> b03b9752940d72db77a3bc296d5dcbd03cbc7e33
-</body>
-</html>
+{% endblock %}
