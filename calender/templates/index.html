@@ -15,9 +15,9 @@
             <ul>
                 <li class="logo"><img src="{% static 'img/logo.png' %}"></li>
                 <li>Home</li>
-                <li>Calender</li>
+                <li><a href="{% url 'calender' %}">Calender</a></li>
                 <li>Contact us</li>
-                <li>About us</li>
+                <li><a href="{% url 'developers' %}">About us</li>
                 <li><input type="text" placeholder="who are you looking for?" name="handle" class="search-box"></li>
                 <li><a href="{% url 'analytics' %}" class="search-btn"><span>search</span></a> </li>
                 <li><a href="{% url 'logout' %}" class="logout-btn"><span>Logout</span></a> </li>
