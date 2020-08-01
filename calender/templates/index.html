@@ -10,6 +10,7 @@
 </head>
 <body>
 
+<<<<<<< HEAD
 <!-- Navigation -->
 <card class="card">
 <h1>Code Crawler</h1>
@@ -30,6 +31,22 @@
 </div>
 {% block content %}
 {% endblock %}
+=======
+        <div class="menu">
+            <ul>
+                <li class="logo"><img src="{% static 'img/logo.png' %}"></li>
+                <li>Home</li>
+                <li><a href="{% url 'calender' %}">Calender</a></li>
+                <li>Contact us</li>
+                <li><a href="{% url 'developers' %}">About us</li>
+                <li><input type="text" placeholder="who are you looking for?" name="handle" class="search-box"></li>
+                <li><a href="{% url 'analytics' %}" class="search-btn"><span>search</span></a> </li>
+                <li><a href="{% url 'logout' %}" class="logout-btn"><span>Logout</span></a> </li>
+            </ul>
+        </div>
+    {% block content%}
+    {% endblock %}
+>>>>>>> ac9010b6094d8c497b74a8c1c217597cd3a4cfe4
 
 </body>
 </html>
