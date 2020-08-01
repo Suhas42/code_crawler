@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>analytics</title>
+</head>
+<body>
+<form action="{% url 'analytics' %}" method="post">
+    {% csrf_token %}
+    Enter handle:<br>
+    <input type="text" name="handleinput">
+    <input type="submit"  value="search">
+</form>
+<div>
+    <div class="col-md-6">
+        {% if status %}
+            <h2>{{ userinfo.handle }}</h2>
+            <p>{{ userinfo.handle }}</p>
+            <p><img src="{{ userinfo.avatar }}" alt="Not Found"></p><br>
+            <h2>{{ rank }}</h2><br>
+            <h2>{{ problemrating }}</h2><br>
+        {% endif %}
+    </div>
+    <div class="col-md-6" id="submissionchart">
+        <h2>{{ languages }}</h2><br>
+    </div>
+</div>
+</body>
+</html>
