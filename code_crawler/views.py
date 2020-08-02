@@ -42,7 +42,7 @@ def register(request):
                 return redirect('login')
             message = 'Account not created'
         context={'form':form,'message':message}
-        return render(request,'register.html',context)
+        return render(request,'signup.html',context)
 
 @login_required(login_url='login')
 def analytics(request):
