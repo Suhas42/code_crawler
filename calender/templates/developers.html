@@ -1,10 +1,118 @@
 {% extends 'index.html'%}
+{% load static %}
 {% block head %}
 <title>Developrs</title>
 {% endblock %}
 {% block content %}
-<h1>Vikyath</h1><br>
-<h1>Pavan</h1><br>
-<h1>Sainath</h1><br>
-<h1>Lokesh</h1><br>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  color: white;
+  background-color: black;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  background-color: black;
+
+}
+.about-section {
+  padding: 60px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+
+}
+.viky{
+  background-color: black;
+}
+.loki{
+  background-color: black;
+}
+h2{
+  color:white;
+}
+.pavan{
+  background-color: black;
+}
+.sainath{
+  background-color: black;
+}
+body{
+  background-color: black;
+}
+.moota{
+  margin-top: 33px;
+}
+.monu{
+  margin-top: 44px;
+}
+.vik{
+  margin-top: 30px;
+}
+</style>
+
+  <div class="about-section">
+    <h1>About Us Page</h1>
+  </div>
+
+  <h2 style="text-align:center;background-color: black;">Our Team</h2>
+
+<div class="row">
+  <div class="column" style="background-color:black;">
+      <img class="pavan" src="{% static 'img/pavanpic.PNG' %}" alt="Mike" style="width: 45vh;margin-left: 2vh;padding: 1vh;">
+      <div class="moota">
+        <h2>Pavan</h2>
+        <p class="title"><b>Chief Marketing Officer (CMO)</b></p>
+        <p>Age : 19 years</p>
+        <p>Btech Pre-final year</p>
+        <p>pavan@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+  </div>
+  <div class="column" style="background-color:black;">
+    <img class="sainath" src="{% static 'img/pic.PNG' %}" alt="Mike" style="width: 34vh;margin-left: 9vh;margin-bottom: -2vh;">
+    <div class="monu">
+      <h2>Sainath</h2>
+      <p class="title"><b>Chief Technology Officer (CTO)</b></p>
+      <p>Age : 19 years</p>
+      <p>Btech Pre-final year</p>
+      <p>sainath@example.com</p>
+      <p><button class="button">Contact</button></p>
+    </div>
+  </div>
+  <div class="column" style="background-color:black;">
+    <img class="loki" src="{% static 'img/lokipic.PNG' %}" alt="Jane" style="width: 49vh;margin-left: 3vh;padding: 1vh;">
+    <div class="toki">
+        <h2>Lokesh</h2>
+        <p class="title"><b>Chief Financial Officer (CFO)</b></p>
+        <p>Age : 19 years</p>
+        <p>Btech Pre-final year</p>
+        <p>lokesh@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+  </div>
+  <div class="column" style="background-color:black;">
+    <img class="viky" src="{% static 'img/vikypic.PNG' %}" alt="John" style="width: 46vh;margin-left: 3vh;">
+    <div class="vik">
+      <h2>Vikyath</h2>
+      <p class="title"><b>Chief Operating Officer (COO)</b></p>
+      <p>Age : 19 years</p>
+      <p>Btech Pre-final year</p>
+      <p>vikyath@example.com</p>
+      <p><button class="button">Contact</button></p>
+    </div>
+  </div>
+</div>
 {% endblock %}

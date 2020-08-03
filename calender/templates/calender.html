@@ -3,17 +3,29 @@
 <title>Code Calender</title>
 {% endblock %}
 {% block content %}
-    <table style="align-content: center" border="3">
+    <style>
+    body{
+        align-content: center;
+    }
+    .table{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    </style>
+    <table class="table" style="text-align: center" border="3">
         <thead>
-            <th style="align-content: center">Contest Platform</th>
-            <th style="align-content: center">Contest Name</th>
-            <th style="align-content: center">Contest Date&Time</th>
+            <th style="text-align: center">Contest Platform</th>
+            <th style="text-align: center">Contest Name</th>
+            <th style="text-align: center">Contest Date&Time</th>
         </thead>
         {% for contest in cf_contest_list %}
             {% if contest.phase == string %}
                 <tr>
-                    <td style="align-content: center">Codeforces</td>
-                    <td><a href="{{ cf_contest_link }}{{ contest.id }}">{{ contest.name }}</a></td>
+                    <td style="text-align: center">Codeforces</td>
+                    <td style="text-align: center"><a href="{{ cf_contest_link }}{{ contest.id }}">{{ contest.name }}</a></td>
                     <td>{{ contest.startTimeSeconds }}</td>
                 </tr>
             {% endif %}
@@ -21,8 +33,8 @@
 
         {% for contest in chef_contest_list %}
             <tr>
-                <td style="align-content: center">Codechef</td>
-                <td><a href="{{ chef_contest_link }}{{ contest.0 }}">{{ contest.1 }}</a></td>
+                <td style="text-align: center">Codechef</td>
+                <td style="text-align: center"><a href="{{ chef_contest_link }}{{ contest.0 }}">{{ contest.1 }}</a></td>
                 <td>{{ contest.2 }}, {{ contest.3 }}</td>
             </tr>
         {% endfor %}

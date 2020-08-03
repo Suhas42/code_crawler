@@ -5,9 +5,13 @@
     font-family: Arial, Helvetica, sans-serif;
   }
 
+  h2{
+    color: white;
+  }
+
   .topnav {
     overflow: hidden;
-    background-color: black;
+    background-color: #5d4954;
   }
 
   .topnav a {
@@ -68,7 +72,7 @@
       text-align: center;
       width: 100%;
       margin: 0;
-      padding: 1  4px;
+      padding: 10px 4px;
     }
     .topnav input[type=text] {
       border: 1px solid #ccc;
