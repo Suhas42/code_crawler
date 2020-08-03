@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+
+
+}
+
+.about-section {
+  padding: 60px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+  
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+  
+  
+}
+</style>
+</head>
+<body>
+
+<div class="about-section">
+  <h1>About Us Page</h1>
+</div>
+
+<h2 style="text-align:center">Our Team</h2>
+
+<div class="gridcard"> 
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img class="loki" src="../../code_crawler/Images/lokipic.PNG" alt="Jane" style="width: 47vh;margin-left: 7vh;padding: 1vh;">
+      <div class="container">
+        <h2>Lokesh</h2>
+        <p class="title"><b>Chief Financial Officer (CFO)</b></p>
+        <p>Age : 19 years</p>
+        <p>Btech Pre-final year</p>
+        <p>lokesh@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="../../code_crawler/Images/1570776184641.jpg" alt="Mike" style="width:64vh;padding: 3vh;">
+      <div class="container">
+        <h2>Sainath</h2>
+        <p class="title"><b>Chief Technology Officer (CTO)</b></p>
+        <p>Age : 19 years</p>
+        <p>Btech Pre-final year</p>
+        <p>sainath@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="../../code_crawler/Images/pavanpic.PNG" alt="Mike" style="width: 45vh;margin-left: 7vh;padding: 1vh;">
+      <div class="container">
+        <h2>Pavan</h2>
+        <p class="title"><b>Chief Marketing Officer (CMO)</b></p>
+        <p>Age : 19 years</p>
+        <p>Btech Pre-final year</p>
+        <p>pavan@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <div class="column">
+    <div class="card">
+      <img src="../../code_crawler/Images/vikypic.PNG" alt="John" style="width: 55vh;margin-left: 7vh;">
+      <div class="container">
+        <h2>Vikyath</h2>
+        <p class="title"><b>Chief Operating Officer (COO)</b></p>
+        <p>Age : 19 years</p>
+        <p>Btech Pre-final year</p>
+        <p>vikyath@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>          
+
+
+</body>
+</html>
