@@ -5,14 +5,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-{% block head %}
-{% endblock %}
 </head>
 <body>
 <!-- Navigation -->
 
 <div class="topnav" >
-  <h2>CODE CRAWLER</h2>
+  <a href="{% url 'home' %}">CODE CRAWLER</a>
   <a class="active" href="{% url 'home' %}">Home</a>
   <a href="{% url 'developers' %}">About</a>
   <a href="{% url 'calender' %}">Calender</a>
