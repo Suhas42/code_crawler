@@ -44,7 +44,7 @@ def register(request):
         context={'form':form,'message':message}
         return render(request,'signup.html',context)
 
-@login_required(login_url='login')
+#@login_required(login_url='login')
 def analytics(request):
     context = {}
     if request.method == 'POST':
